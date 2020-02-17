@@ -1,54 +1,45 @@
-## Video Chat Application Example
+Projeto desenvolvido com Laravel, no qual foi criada uma Api com autenticação.
+No frontend foi utilizado o VueJS, VueRouter, Vuex, entre outros.
+Nele é possível criar usuários, cadastrar, listar e ver produtos e categorias.
 
-[Youtube Tutorial link](https://www.youtube.com/watch?v=Jd1RW-0lQOs&t=13s)
-
-#### [@WeCodeTutorials](https://twitter.com/WeCodeTutorials)
-[![Logo](https://cdn.pbrd.co/images/HdwCut8.png)](https://www.youtube.com/channel/UCj9VatwdukZjNOnIKcpWcsA)
-
-This project is made for my youtube tutorial on "Create a SPA with Vue.JS 2, Vue-Router, Vuex and Laravel 5.6".
-
-![App Example](https://media.giphy.com/media/9JkdzNeLr0Jos5CYQk/giphy.gif)
-
-## get it up and running.
-
-After you clone this project, do the following:
+Depois de clonar o projeto sigua os passos abaixo
 
 ```bash
-# go into the project
-cd Vue-Laravel-SPA
+# vá para a pasta do projeto
+cd /pastadoprojeto
 
-# create a .env file
+# crie o arquivo .env
 cp .env.example .env
 
-# install composer dependencies
+# instale as dependencias do composer
 composer update
 
-# install npm dependencies
+# instale as dependencias do npm
 npm install
 
-# generate a key for your application
+# gere uma chave para a aplicação
 php artisan key:generate
 
-# generate Server secret for JWT
+# gere uma chave para o jwt
 php artisan jwt:secret
 
-# create a local MySQL database (make sure you have MySQL up and running)
+# crie uma base de dados local
 mysql -u root
 
-> create database vuespa_db;
+> create database seu-banco-de-dados;
 > exit;
 
-# add the database connection config to your .env file
+# coloque a configuração do seu banco de dados no arquivo .env
 DB_CONNECTION=mysql
-DB_DATABASE=vuespa_db
+DB_DATABASE=seu-banco-de-dados
 DB_USERNAME=root
 DB_PASSWORD=
 
-# run the migration files to generate the schema
+# execute o comando migrate para gerar o schema
 php artisan migrate
 
-# run webpack and watch for changes
+# e finalmente
 npm run watch
 ```
 
-Good Luck :)
+Isso é tudo :)

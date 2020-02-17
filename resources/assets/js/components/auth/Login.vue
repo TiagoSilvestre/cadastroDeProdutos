@@ -1,8 +1,8 @@
 <template>
-    <div class="login row justify-content-center">
+    <div class="login row justify-content-center mt-5">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">login</div>
+                <div class="card-header"><h3>Login</h3></div>
                 <div class="card-body">
                     <form @submit.prevent="authenticate">
                         <div class="form-group row">
@@ -14,7 +14,7 @@
                             <input type="password" v-model="form.password" class="form-control" placeholder="Password">
                         </div>
                         <div class="form-group row">
-                            <input type="submit" value="Login">
+                            <input type="submit" value="Login" class="btn btn-primary text-white">
                         </div>
                         <div class="form-group row" v-if="authError">
                             <p class="error">

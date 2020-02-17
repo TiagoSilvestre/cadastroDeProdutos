@@ -9,18 +9,13 @@
             Nele é possível criar usuários, cadastrar, listar e ver produtos e categorias.  
         </p>
         
-    </div>
+    </div>    
 </div>
 </template>
 
 <script>
     export default {
-        name: 'home',
-        computed: {
-            welcome() {
-                return this.$store.getters.welcome
-            }
-        }
+        name: 'home'
     }
 </script>
 

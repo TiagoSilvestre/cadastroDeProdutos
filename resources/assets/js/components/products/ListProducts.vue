@@ -64,6 +64,7 @@
                 </li>
             </ul>
         </nav>
+        <small>* Paginação: 3 produtos por página</small>
 
     </div>
 </template>
