@@ -8,6 +8,7 @@ import MainProducts from './components/products/MainProducts.vue';
 import NewProduct from './components/products/NewProduct.vue';
 import MainCategories from './components/categories/MainCategories.vue';
 import ListCategories from './components/categories/ListCategories.vue';
+import NewCategory from './components/categories/NewCategory.vue';
 
 import NewCustomer from './components/customers/New.vue';
 import Customer from './components/customers/View.vue';
@@ -38,11 +39,11 @@ export const routes = [
             {
                 path: '/',
                 component: ListCategories
-            }/*,
+            },
             {
                 path: 'new',
-                component: NewProduct
-            },
+                component: NewCategory
+            }/*,
             {
                 path: ':id',
                 component: Customer

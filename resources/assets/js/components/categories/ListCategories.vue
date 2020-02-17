@@ -9,9 +9,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Nome do produto</th>
+                        <th scope="col">Nome da categoria</th>
                         <th scope="col">Ações</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +37,6 @@
 
 
 
-
-
 <script>
 export default {
     data() {
@@ -55,7 +52,6 @@ export default {
     methods: {
         fetchProducts(page_url) {
             page_url = page_url || '/api/categories';
-            // fetch(page_url)
             axios.get(page_url)
                 .then(res => {
                     this.categories = res.data.data;
