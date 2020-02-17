@@ -8,7 +8,7 @@
             <form @submit.prevent="add">
                 <table class="table">
                     <tr>
-                        <th>Titulo</th>
+                        <th>Categoria</th>
                         <td>
                             <div class="select-container">
                                 <select id="categories" v-model="selectedValue" class="form-control" placeholder="Selecione">
@@ -20,7 +20,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Titulo</th>
+                        <th>Título</th>
                         <td>
                             <input type="text" class="form-control" v-model="product.title" placeholder="Digite o título do produto"/>
                         </td>

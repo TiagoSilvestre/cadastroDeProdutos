@@ -54138,7 +54138,7 @@ var render = function() {
         [
           _c("table", { staticClass: "table" }, [
             _c("tr", [
-              _c("th", [_vm._v("Titulo")]),
+              _c("th", [_vm._v("Categoria")]),
               _vm._v(" "),
               _c("td", [
                 _c(
@@ -54205,7 +54205,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", [
-              _c("th", [_vm._v("Titulo")]),
+              _c("th", [_vm._v("Título")]),
               _vm._v(" "),
               _c("td", [
                 _c("input", {

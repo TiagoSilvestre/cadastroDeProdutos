@@ -24,11 +24,6 @@ Route::group(['prefix' => 'auth'], function ($router) {
 });
 
 Route::group(['middleware' => 'jwt.auth'], function ($router) {
-
-    Route::get('customers', 'CustomersController@all');
-    Route::get('customers/{id}', 'CustomersController@get');
-    Route::post('customers/new', 'CustomersController@new');
-
     // PRODUCTS
     Route::get('products', 'ProductController@index');
     Route::get('product/{id}', 'ProductController@show');
@@ -36,12 +31,10 @@ Route::group(['middleware' => 'jwt.auth'], function ($router) {
     Route::put('product', 'ProductController@store');
     Route::delete('product/{id}', 'ProductController@destroy');
 
-
     // CATEGORIES
     Route::get('categories', 'CategoryController@index');
     Route::get('category/{id}', 'CategoryController@show');
     Route::post('category', 'CategoryController@store');
     Route::put('category', 'CategoryController@store');
     Route::delete('category/{id}', 'CategoryController@destroy');    
-
 });
