@@ -1,10 +1,12 @@
+### App Cadastro de Produtos - com Laravel e VueJs 
+
 Projeto desenvolvido com Laravel, no qual foi criada uma Api com autenticação Jwt.
 No frontend foi utilizado o VueJS, VueRouter, Vuex, entre outros.
 No backend foi usado o Laravel, migrations, jwt-auth, Resources, entre outros.
 Nele é possível criar usuários, cadastrar, listar e ver produtos e categorias.
 
 
-Depois de clonar o projeto sigua os passos abaixo
+Depois de clonar o projeto siga os passos abaixo:
 
 ```bash
 # vá para a pasta do projeto
