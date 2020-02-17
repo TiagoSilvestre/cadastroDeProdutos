@@ -10,33 +10,45 @@
                     <tr>
                         <th>Titulo</th>
                         <td>
-                            <input type="text" class="form-control" v-model="customer.title" placeholder="Customer Name"/>
+                            <div class="select-container">
+                                <select id="categories" v-model="selectedValue" class="form-control" placeholder="Selecione">
+                                    <option :value="null" disabled>Selecione...</option>
+                                    <option v-for="item in categories" :value="item.id">{{ item.title }}</option>
+                                </select>
+                                <router-link to="/categories/new">+ Cadastrar Categoria</router-link>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Titulo</th>
+                        <td>
+                            <input type="text" class="form-control" v-model="product.title" placeholder="Digite o título do produto"/>
                         </td>
                     </tr>
                     <tr>
                         <th>Descrição</th>
                         <td>
-                            <input type="text" class="form-control" v-model="customer.description" placeholder="Customer Email"/>
+                            <input type="text" class="form-control" v-model="product.description" placeholder="Digite a descrição"/>
                         </td>
                     </tr>
                     <tr>
                         <th>Preço</th>
                         <td>
-                            <input type="text" class="form-control" v-model="customer.price" placeholder="Customer Phone"/>
+                            <input type="text" class="form-control" v-model="product.price" placeholder="Digite o preço"/>
                         </td>
                     </tr>
                     <tr>
                         <th>Url da Imagem</th>
                         <td>
-                            <input type="text" class="form-control" v-model="customer.image" placeholder="Customer Website"/>
+                            <input type="text" class="form-control" v-model="product.image" placeholder="Digite a Url da imagem"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <router-link to="/customers" class="btn">Cancel</router-link>
+                            <router-link to="/products" class="btn">Cancelar</router-link>
                         </td>
                         <td class="text-right">
-                            <input type="submit" value="Create" class="btn btn-primary">
+                            <input type="submit" value="Cadastrar" class="btn btn-primary">
                         </td>
                     </tr>
                 </table>
@@ -59,62 +71,77 @@
         name: 'new-product',
         data() {
             return {
-                customer: {
+                product: {
                     title: '',
                     description: '',
+                    category_id: '',
                     price: '',
                     image: ''
                 },
+                categories: [],
+                selectedValue: null,
                 errors: null
             };
         },
+        mounted() {
+            this.fetchCategories();
+        },        
         computed: {
             currentUser() {
                 return this.$store.getters.currentUser;
             }
         },
         methods: {
+            fetchCategories() {
+                axios.get('/api/categories')
+                    .then(res => {
+                        this.categories = res.data.data;
+                    })
+                .catch(err => console.log(err));
+            },
             add() {
                 this.errors = null;
 
+                this.$data.product.category_id = this.$data.selectedValue
+
+                console.log(this.$data.product);
+                
                 const constraints = this.getConstraints();
 
-                const errors = validate(this.$data.customer, constraints);
+                const errors = validate(this.$data.product, constraints);
 
                 if(errors) {
                     this.errors = errors;
                     return;
                 }
 
-                axios.post('/api/customers/new', this.$data.customer)
+                axios.post('/api/product', this.$data.product)
                     .then((response) => {
-                        this.$router.push('/customers');
+                        this.$router.push('/products');
                     });
             },
             getConstraints() {
                 return {
-                    name: {
+                    title: {
                         presence: true,
                         length: {
                             minimum: 3,
                             message: 'Must be at least 3 characters long'
                         }
                     },
-                    email: {
+                    description: {
                         presence: true,
-                        email: true
+
                     },
-                    phone: {
+                    price: {
                         presence: true,
-                        numericality: true,
-                        length: {
-                            minimum: 10,
-                            message: 'Must be at least 10 digits long'
-                        }
+                        numericality: true
                     },
-                    website: {
-                        presence: true,
-                        url: true
+                    image: {
+                        presence: true
+                    },
+                    category_id: {
+                        presence: true
                     }
                 };
             }
@@ -127,6 +154,17 @@
     background: lightcoral;
     border-radius:5px;
     padding: 21px 0 2px 0;
+}
+.select-container{
+    display: flex;
+}
+.select-container select{
+    max-width: 430px;
+}
+.select-container a{
+    margin-left: 80px;
+    padding-top: 7px;
+
 }
 </style>
 

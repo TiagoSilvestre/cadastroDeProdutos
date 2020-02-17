@@ -8,7 +8,7 @@
             <form @submit.prevent="add">
                 <table class="table">
                     <tr>
-                        <th>Titulo</th>
+                        <th>Título</th>
                         <td>
                             <input type="text" class="form-control" v-model="category.title" placeholder=""/>
                         </td>
@@ -16,10 +16,10 @@
                   
                     <tr>
                         <td>
-                            <router-link to="/customers" class="btn">Cancel</router-link>
+                            <router-link to="/categories" class="btn">Cancelar</router-link>
                         </td>
                         <td class="text-right">
-                            <input type="submit" value="Create" class="btn btn-primary">
+                            <input type="submit" value="Cadastrar" class="btn btn-primary">
                         </td>
                     </tr>
                 </table>

@@ -1,7 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <router-link class="navbar-brand" to="/">My Vue App</router-link>
+            <router-link class="navbar-brand" to="/">Home</router-link>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,3 +58,15 @@
         }
     }
 </script>
+
+<style>
+.links-menu{
+    display: inline-block;
+    padding-top: 0.32rem;
+    padding-bottom: 0.32rem;
+    margin-right: 1rem;
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+</style>

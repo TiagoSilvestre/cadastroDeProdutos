@@ -1,18 +1,16 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Vue.JS SPA example</div>
-
-                    <div class="card-body">
-                        <h2>{{ welcome }}</h2>
-                        <img src="https://camo.githubusercontent.com/f2f5547663dd4286b279d319270607316d5af2cc/68747470733a2f2f63646e2e706272642e636f2f696d616765732f486477437574382e706e67" alt="WeCode">
-                    </div>
-                </div>
-            </div>
-        </div>
+   <div class="home-style">
+    <div class="container home-container">
+        <h3>Bem vindo a Home Page!</h3>
+        <h4><u>App para Cadastros de produtos</u></h4>
+        <p>
+            Projeto desenvolvido com Laravel, no qual foi criada uma Api com autenticação.<br>
+            No frontend foi utilizado o VueJS, VueRouter, Vuex, entre outros.<br>
+            Nele é possível criar usuários, cadastrar, listar e ver produtos e categorias.  
+        </p>
+        
     </div>
+</div>
 </template>
 
 <script>
@@ -25,3 +23,17 @@
         }
     }
 </script>
+
+<style>
+.home-style{
+    height: 335px;
+    background: #4a4afb;
+    color: white;
+    padding-top: 74px;
+    margin-bottom: 5px;
+    margin-top: -31px;
+}
+.home-container{
+    padding: 20px;
+}
+</style>
