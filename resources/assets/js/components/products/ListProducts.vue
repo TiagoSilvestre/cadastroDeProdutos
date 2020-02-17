@@ -1,12 +1,11 @@
 <template>
-    <div class="container py-4">
+    <div>
         <div class="header-container">
-            <h3>Produtos</h3>
-            <div><a href="#/novoServico" class="btn btn-primary btn-block">+ Cadastrar Produto</a></div>
+            <h5>Lista de Produtos Cadastrados</h5>
+            <div><router-link to="/products/new" class="btn btn-primary btn-block">+ Cadastrar Produto</router-link></div>
         </div>
 
-        <p>Lista de Produtos Cadastrados</p>
-
+        
         <form class="form-inline">
             <div class="form-group mb-2">
                 <p style="margin-top: 15px;">Filtrar Produtos:</p>
@@ -36,10 +35,12 @@
                         <td scope="row">{{ product.price }}</td>
                         <td scope="row">{{ product.category.title }}</td>
                         <td scope="row">
-                            <!--<a href="#">Ver</a>-->
+                            
                             <a href="#"><i class="material-icons">visibility</i></a>
+                            <!--<a href="#">Ver</a>
                             <i class="material-icons">edit</i>
                             <i class="material-icons">delete_forever</i>
+                            -->
                         </td>
                     </tr>
                 </tbody>
@@ -98,7 +99,6 @@ export default {
             // fetch(page_url)
             axios.get(page_url)
                 .then(res => {
-                    console.log(res);
                     this.products = res.data.data;
                     this.loading = false;
                     this.noData = (res.data.data.length == 0) ? true : false;
@@ -122,13 +122,12 @@ export default {
         }
         let vm = this;
         this.loading = true;
-        fetch('/api/products?title='+ this.filterName)
-            .then(res => res.json())
+        axios.get('/api/products?title='+ this.filterName)
             .then(res => {
-                this.products = res.data;
+                this.products = res.data.data;
                 this.loading = false;
-                this.noData = (res.data.length == 0) ? true : false;
-                vm.makePagination(res.meta, res.links);
+                this.noData = (res.data.data.length == 0) ? true : false;
+                vm.makePagination(res.data.meta, res.data.links);
             })
             .catch(err => console.log(err));
     },

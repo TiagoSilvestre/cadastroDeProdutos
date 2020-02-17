@@ -17,6 +17,12 @@
                     </template>
                     <template v-else>
                         <li>
+                            <router-link to="/products" class="nav-link">Produtos</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/categories" class="nav-link">Categorias</router-link>
+                        </li>                        
+                        <li>
                             <router-link to="/customers" class="nav-link">Customers</router-link>
                         </li>
                         <li class="nav-item dropdown">
