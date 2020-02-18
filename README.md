@@ -10,7 +10,7 @@ Depois de clonar o projeto siga os passos abaixo:
 
 ```bash
 # vá para a pasta do projeto
-cd /pastadoprojeto
+cd /cadastroDeProdutos
 
 # crie o arquivo .env
 cp .env.example .env
@@ -41,6 +41,10 @@ DB_PASSWORD=
 
 # execute o comando migrate para gerar o schema
 php artisan migrate
+
+# crie um virtualhost para a aplicação na pasta /cadastroDeProdutos/public
+Caso esteja rodando no xamp, adicione um entrada em httpd-vhost.conf e no arquivo hosts,
+roteando para pasta /cadastroDeProdutos/public do projeto
 
 # e finalmente
 npm run watch
